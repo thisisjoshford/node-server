@@ -3,12 +3,12 @@ const http = require ("http");
 //url allows us to map requests to our request handlers based on the URL path using our router
 const url = require ("url");
 
-function start(route){
+function start(route, handle){
   function onRequest(request, response){
     const pathname = url.parse(request.url).pathname;
     console.log("Request for " + pathname + "received.");
 
-    route (pathname);
+    route (handle, pathname);
 
     response.writeHead(200, {"Content-Type": "text/plain"});
     response.write("What's up Josh?");
