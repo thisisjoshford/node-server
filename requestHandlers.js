@@ -1,7 +1,7 @@
 const exec = require("child_process").exec;
 
 function start(response){
-  
+
   console.log("Request handler 'start' was called.");
   
     const body = '<html>'+
@@ -16,11 +16,10 @@ function start(response){
     '</form>'+
     '</body>'+
     '</html>';
-    response.writeHead(200, {"Content-Type": "text/plain"});
+    response.writeHead(200, {"Content-Type": "text/html"});
     response.write(body);
     response.end();
-  })
-}
+  }
 
 function upload(response){
   console.log("Request handler 'upload' was called.");
