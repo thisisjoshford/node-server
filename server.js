@@ -1,9 +1,12 @@
 //use the http module in node and assign it to http (we can actually call http anything we want)
 const http = require ("http");
+//url allows us to map requests to our request handlers based on the URL path using our router
+const url = require ("url");
 
 function start(){
   function onRequest(request, response){
-    console.log("Request received")
+    const pathname = url.parse(request.url).pathname;
+    console.log("Request for " + pathname + "received.");
     response.writeHead(200, {"Content-Type": "text/plain"});
     response.write("What's up Josh?");
     response.end();
